@@ -1,9 +1,19 @@
 import React, { memo } from 'react';
-import styles from './index.less';
 import { ILongTextConfig } from './schema';
-import logo from '@/assets/08-长文本.png';
+import logo from '@/assets/longText.png';
 const LongText = memo((props: ILongTextConfig & { isTpl: boolean }) => {
-  const { text, fontSize, color, indent, lineHeight, textAlign, isTpl } = props;
+  const {
+    text,
+    fontSize,
+    color,
+    indent,
+    lineHeight,
+    textAlign,
+    bgColor,
+    padding,
+    radius,
+    isTpl,
+  } = props;
   return (
     <>
       {isTpl ? (
@@ -12,8 +22,16 @@ const LongText = memo((props: ILongTextConfig & { isTpl: boolean }) => {
         </div>
       ) : (
         <div
-          className={styles.textWrap}
-          style={{ color, textIndent: indent + 'px', fontSize, lineHeight, textAlign }}
+          style={{
+            color,
+            textIndent: indent + 'px',
+            fontSize,
+            lineHeight,
+            textAlign,
+            backgroundColor: bgColor,
+            padding,
+            borderRadius: radius,
+          }}
         >
           {text}
         </div>
